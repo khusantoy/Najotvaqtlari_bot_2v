@@ -3,7 +3,7 @@ include 'Telegram.php';
 
 $telegram = new Telegram('6222379578:AAHoybXLC7o2voC4BRmObOiSXbes_JH1cwU');
 
-//https://api.telegram.org/bot6222379578:AAHoybXLC7o2voC4BRmObOiSXbes_JH1cwU/setWebhook?url=https://352b-213-230-72-13.eu.ngrok.io/Najotvaqtlari_bot_2_version/bot.php
+//https://api.telegram.org/bot6222379578:AAHoybXLC7o2voC4BRmObOiSXbes_JH1cwU/setWebhook?url=https://09a3-213-230-72-43.eu.ngrok.io/Najotvaqtlari_bot_2_version/bot.php
 
 // user's info
 $result = $telegram->getData();
@@ -11,6 +11,7 @@ $text = $result['message'] ['text'];
 $chat_id = $result['message'] ['chat']['id'];
 $first_name = $result['message']['chat']['first_name'];
 $username = $result['message']['chat']['username'];
+$date = date('Y-m-d', $result['message']['date']);
 
 // Database
 $server = "localhost";
@@ -25,7 +26,7 @@ if ($text == '/start') {
     $db_insert = $db->query("SELECT chat_id FROM users WHERE chat_id = '$chat_id'")->fetch_assoc();
 
     if (!$db_insert){
-        $db->query("insert into users (name,username,chat_id) values ('$first_name','$username','$chat_id')");
+        $db->query("insert into users (name,username,chat_id,joined_at) values ('$first_name','$username','$chat_id','$date')");
     }
 
     $reply = "Assalomu alaykum va rohmatullohi va barokatuh!
@@ -89,10 +90,10 @@ Namoz vaqtlari Polvonko'l jome masjidida belgilangan namoz vaqtlari asosida ko'r
 }
 // Namoz vaqtlari button
 if ($text == 'Namoz vaqtlari') {
-    $date = date('Y-m-d');
+
     $reply = "🕋 Namoz vaqtlari
     
-🗓 Sana: " . $date . "
+Sana: " . $date . "
 
 🕔 Bomdod: <b>5-45</b>
 🕐 Peshin: <b>1-00</b>
