@@ -17,7 +17,7 @@ $num = $row["COUNT(*)"];
 
 ?>
       <main class="content">
-          <h4 class="mt-4" style="margin-left: 25px">Foydalanuvchilar soni: <span class="badge bg-info p-2"><?=$num?></span></h4>
+          <h4 class="mt-4">Foydalanuvchilar soni: <span class="badge bg-info pt-1 pb-1"><?=$num?></span></h4>
           <div class="card border-0 shadow mb-4">
               <div class="card-body">
                   <div class="table-responsive">
@@ -48,4 +48,4 @@ $num = $row["COUNT(*)"];
               </div>
           </div>
       </main>
-<?php require 'layouts/footer.php.php' ?>
+<?php require 'layouts/footer.php' ?>

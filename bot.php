@@ -3,7 +3,7 @@ include 'Telegram.php';
 
 $telegram = new Telegram('6222379578:AAHoybXLC7o2voC4BRmObOiSXbes_JH1cwU');
 
-//https://api.telegram.org/bot6222379578:AAHoybXLC7o2voC4BRmObOiSXbes_JH1cwU/setWebhook?url=https://09a3-213-230-72-43.eu.ngrok.io/Najotvaqtlari_bot_2_version/bot.php
+//https://api.telegram.org/bot6222379578:AAHoybXLC7o2voC4BRmObOiSXbes_JH1cwU/setWebhook?url=https://e08f-213-230-72-43.eu.ngrok.io/Najotvaqtlari_bot_2_version/bot.php
 
 // user's info
 $result = $telegram->getData();
@@ -90,16 +90,20 @@ Namoz vaqtlari Polvonko'l jome masjidida belgilangan namoz vaqtlari asosida ko'r
 }
 // Namoz vaqtlari button
 if ($text == 'Namoz vaqtlari') {
+    $vaqtlar = $db->query("SELECT * FROM vaqtlar")->fetch_assoc();
+    $a = explode('-',$vaqtlar['vaqt_oraliq']);
+    $b = $a[0];
+    $c = $a[1];
 
     $reply = "🕋 Namoz vaqtlari
     
-Sana: " . $date . "
+🗓 " . $b ." dan"." $c"." gacha". "
 
-🕔 Bomdod: <b>5-45</b>
-🕐 Peshin: <b>1-00</b>
-🕓 Asr: <b>4-55</b>
-🕧 Shom: <b>6:35</b>
-🕗 Xufton: <b>8-15</b>
+🕔 Bomdod: <b>".$vaqtlar['bomdod']."</b>
+🕐 Peshin: <b>".$vaqtlar['peshin']."</b>
+🕓 Asr: <b>".$vaqtlar['asr']."</b>
+🕧 Shom: <b>".$vaqtlar['shom'].' (+1)'."</b>
+🕗 Xufton: <b>".$vaqtlar['xufton']."</b>
 
 ❗️ Albatta, namoz mo'minlarga vaqtida farz qilingandir.(Niso surasi,103-oyat)";
 
