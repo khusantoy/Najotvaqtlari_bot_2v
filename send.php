@@ -6,11 +6,7 @@ $telegram = new Telegram('6222379578:AAHoybXLC7o2voC4BRmObOiSXbes_JH1cwU');
 $text = $_POST['text'];
 
 // Database
-$server = "localhost";
-$db_user = "user";
-$db_password = "password";
-$database = "najotvaqtlari";
-$db = mysqli_connect($server,$db_user,$db_password,$database);
+include 'database.php';
 
 $users = $db->query("SELECT chat_id FROM users")->fetch_all(1);
 

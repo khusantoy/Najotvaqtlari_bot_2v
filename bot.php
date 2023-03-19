@@ -13,12 +13,8 @@ $first_name = $result['message']['chat']['first_name'];
 $username = $result['message']['chat']['username'];
 $date = date('Y-m-d', $result['message']['date']);
 
-// Database
-$server = "localhost";
-$db_user = "user";
-$db_password = "password";
-$database = "najotvaqtlari";
-$db = mysqli_connect($server,$db_user,$db_password,$database);
+include 'database.php';
+
 
 // start command
 if ($text == '/start') {

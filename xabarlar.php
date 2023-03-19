@@ -12,7 +12,7 @@
         <button class="btn btn-primary mt-3">Yuborish</button>
             <?php
             if( $_GET['status'] == 'success'):
-                echo "<button class='btn btn-success text-white mt-3' id='alert'>Muvaffaqiyatli yuborildi!</button>";
+                echo "<button class='btn btn-success text-white mt-3' id='alert'>Yuborildi!</button>";
             endif;
             ?>
         </form>

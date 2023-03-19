@@ -1,11 +1,7 @@
 <?php require 'layouts/header.php' ?>
 <?php
 // Database
-$server = "localhost";
-$db_user = "user";
-$db_password = "password";
-$database = "najotvaqtlari";
-$db = mysqli_connect($server,$db_user,$db_password,$database);
+include 'database.php';
 //foydalanuvchilar
 $users = $db->query("SELECT * FROM users")->fetch_all(1);
 
