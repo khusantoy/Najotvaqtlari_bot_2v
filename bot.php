@@ -3,8 +3,8 @@ include 'Telegram.php';
 
 $telegram = new Telegram('6222379578:AAHoybXLC7o2voC4BRmObOiSXbes_JH1cwU');
 
-//https://api.telegram.org/bot6222379578:AAHoybXLC7o2voC4BRmObOiSXbes_JH1cwU/setWebhook?url=https://e08f-213-230-72-43.eu.ngrok.io/Najotvaqtlari_bot_2_version/bot.php
-
+//https://api.telegram.org/bot6222379578:AAHoybXLC7o2voC4BRmObOiSXbes_JH1cwU/setWebhook?url=https://357b-84-54-76-166.eu.ngrok.io/Najotvaqtlari_bot_2_version/bot.php
+// test
 // user's info
 $result = $telegram->getData();
 $text = $result['message'] ['text'];
