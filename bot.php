@@ -3,8 +3,8 @@ include 'Telegram.php';
 
 $telegram = new Telegram('6222379578:AAHoybXLC7o2voC4BRmObOiSXbes_JH1cwU');
 
-//https://api.telegram.org/bot6222379578:AAHoybXLC7o2voC4BRmObOiSXbes_JH1cwU/setWebhook?url=https://357b-84-54-76-166.eu.ngrok.io/Najotvaqtlari_bot_2_version/bot.php
-// test
+//https://api.telegram.org/bot6222379578:AAHoybXLC7o2voC4BRmObOiSXbes_JH1cwU/setWebhook?url=https://f602-84-54-92-216.ngrok-free.app/Najotvaqtlari/bot.php
+
 // user's info
 $result = $telegram->getData();
 $text = $result['message'] ['text'];
@@ -24,16 +24,12 @@ if ($text == '/start') {
     if (!$db_insert){
         $db->query("insert into users (name,username,chat_id,joined_at) values ('$first_name','$username','$chat_id','$date')");
     }
-
+    
     $reply = "Assalomu alaykum va rohmatullohi va barokatuh!
 
 😊 Botimizga xush kelibsiz!
 
-📃 Yo'riqnoma:
-
-🕌 Polvonko'l jome masjidida belgilangan namoz vaqtlari.
-
-🕔 Namoz vaqtlari har <b>Juma</b> kuni yangilanadi
+⏳ Vaqtlar <b>Polvonko'l jome</b> masjidida belgilangan va har <b>Juma</b> kuni yangilanadi
 
 ❗️ Namoz vaqtlarini bilish uchun <b>Namoz vaqtlari</b> tugmasini bosing.
 ";
@@ -44,21 +40,6 @@ if ($text == '/start') {
     $content = array('chat_id' => $chat_id, 'reply_markup' => $keyb, 'text' => $reply,'parse_mode' => 'HTML');
     $telegram->sendMessage($content);
 }
-// help command
-if ($text == '/help') {
-    $reply = "📃 Yo'riqnoma:
-
-🕌 Polvonko'l jome masjidida belgilangan namoz vaqtlari.
-
-🕔 Namoz vaqtlari har <b>Juma</b> kuni yangilanadi
-
-❗️ Namoz vaqtlarini bilish uchun <b>Namoz vaqtlari</b> tugmasini bosing.
-
-❓️ Savol va bog'lanish uchun: @dastur_muhandisi_bot
-";
-    $content = array('chat_id' => $chat_id, 'text' => $reply,'parse_mode' => 'HTML');
-    $telegram->sendMessage($content);
-}
 // about command
 if ($text == '/about') {
     $sql = "SELECT COUNT(*) FROM users";
@@ -66,14 +47,7 @@ if ($text == '/about') {
     $row = $count->fetch_assoc();
     $num = $row["COUNT(*)"];
 
-    $reply = "🤖 Najot vaqtlari bot
-    
-📋 Vazifa: Namoz vaqtlarini ko'rsatuvchi bot
-
-🔵 Maqsad: Bot muammoga yechim sifatida yaratildi
-
-Namoz vaqtlari Polvonko'l jome masjidida belgilangan namoz vaqtlari asosida ko'rsatiladi va vaqtlar har Juma kuni yangilab boriladi
-
+    $reply = "
 📊 Statistika:
 
 👤 Foydalanuvchilar: " . $num . "
@@ -101,9 +75,8 @@ if ($text == 'Namoz vaqtlari') {
 🕧 Shom: <b>".$vaqtlar['shom'].' (+1)'."</b>
 🕗 Xufton: <b>".$vaqtlar['xufton']."</b>
 
-❗️ Albatta, namoz mo'minlarga vaqtida farz qilingandir.(Niso surasi,103-oyat)";
+❗️ Albatta, namoz mo'minlarga vaqtida farz qilingandir (Niso surasi,103-oyat).";
 
     $content = array('chat_id' => $chat_id, 'text' => $reply,'parse_mode' => 'HTML');
     $telegram->sendMessage($content);
 }
-
