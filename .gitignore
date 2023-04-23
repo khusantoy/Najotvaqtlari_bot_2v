@@ -1,5 +1,2 @@
-/vendor
+vendor/
 .env
-/.fleet
-/.idea
-/.vscode
