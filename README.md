@@ -40,6 +40,12 @@ Bot va serveringiz orasidagi aloqani ta'minlang
 ```bash
 $ https://api.telegram.org/bot(BOT_TOKEN)/setWebhook?url=https://yoursite.com/your_update.php
 ```
+Ma'lumotlar ombori uchun jadval ko'rinishini yuklab oling
+
+```bash
+https://mega.nz/file/WNx3hKYZ#h2EeKG5oXC9KR6Vz6CBZNL_QE7Z-13h2dIa-YVVzono
+```
+
 ⚠️ Muammo va kamchiliklarni aniqlasangiz https://github.com/khusanboytursunov/Najotvaqtlari_bot_2v/issues/new ga yozing.
 
 ---
