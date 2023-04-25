@@ -1,7 +1,16 @@
 <?php
 include 'Telegram.php';
 
-$telegram = new Telegram('6222379578:AAHoybXLC7o2voC4BRmObOiSXbes_JH1cwU');
+require_once realpath(__DIR__ . "/vendor/autoload.php");
+
+use Dotenv\Dotenv;
+
+$dotenv = Dotenv::createImmutable(__DIR__);
+$dotenv->load();
+
+$bot_token = $_ENV['BOT_TOKEN'];
+
+$telegram = new Telegram($bot_token);
 
 $text = $_POST['text'];
 
